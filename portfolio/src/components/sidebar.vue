@@ -3,12 +3,11 @@
 
   <chating @close="closechat_screen" v-if="chating_screen"> </chating>
   <div class="sidebar_container">
-    <div class="chat_container">
+    <!-- <div class="chat_container">
       <label class="chat_label" for="">
-        <img class="chat_img" src="../../public/chat.png" alt="" />
         <button class="chat_help" @click="openchat_screen">채팅상담</button>
       </label>
-    </div>
+    </div> -->
     <label for="">
       <button id="target" @click="handleScroll()">
         <img id="top_arrow" src="../../public/arrow.png" alt="" />
@@ -19,62 +18,62 @@
 
 <script>
 /* eslint-disable */
-import chating from '../components/chating.vue'
-import axios from 'axios'
+import chating from "../components/chating.vue";
+import axios from "axios";
 
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
       chating_screen: false,
       message_arr: [],
-      message: '여행가님, 안녕하세요. 무엇을 도와드릴까요?'
-    }
+      message: "여행가님, 안녕하세요. 무엇을 도와드릴까요?",
+    };
   },
 
-  created() {
-    this.$socket.on('first_message'),
-      (v) => {
-        const chat_screen = document.querySelector('.chat_screen')
-        console.log(v)
-        window.scrolllTo(0, chat_screen.scrollHeight)
-        this.message_arr.push(v.data)
-      }
-  },
+  // created() {
+  //   this.$socket.on("first_message"),
+  //     (v) => {
+  //       const chat_screen = document.querySelector(".chat_screen");
+  //       console.log(v);
+  //       window.scrolllTo(0, chat_screen.scrollHeight);
+  //       this.message_arr.push(v.data);
+  //     };
+  // },
   methods: {
     handleScroll: function () {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     },
-    openchat_screen: function () {
-      this.chating_screen = true
-      if ((this.chating_screen = true)) {
-        this.$socket.emit('first_message', {
-          message: this.message
-        })
-      }
-    },
+    // openchat_screen: function () {
+    //   this.chating_screen = true;
+    //   if ((this.chating_screen = true)) {
+    //     this.$socket.emit("first_message", {
+    //       message: this.message,
+    //     });
+    //   }
+    // },
     closechat_screen: function () {
-      this.chating_screen = false
-    }
+      this.chating_screen = false;
+    },
   },
   components: {
-    chating
-  }
-}
+    chating,
+  },
+};
 </script>
 
 <style>
 @font-face {
-  font-family: 'jua';
-  src: url('../../public/font/BMJUA_ttf.ttf');
+  font-family: "jua";
+  src: url("../../public/font/BMJUA_ttf.ttf");
 }
 
 @font-face {
-  font-family: 'dohyeon';
-  src: url('../../public/font/BMDOHYEON_ttf.ttf');
+  font-family: "dohyeon";
+  src: url("../../public/font/BMDOHYEON_ttf.ttf");
 }
 
 .sidebar_container {

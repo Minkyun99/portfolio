@@ -1,24 +1,24 @@
 <template>
   <!-- eslint-disable -->
   <!-- 제일 바깥 쪽 컨테이너 -->
+  <div id="scroll"></div>
   <div class="main_container">
     <!-- 카테고리 -->
-    <div id="scroll"></div>
     <categories></categories>
     <main_sub_categoriebar></main_sub_categoriebar>
-    <div id="scroll1"></div>
     <keep-alive>
       <mainImage class="mainImage_component"> </mainImage>
     </keep-alive>
 
     <!-- 검색창&로그인 컨테이너 -->
-    <div id="scroll2"></div>
-    <search_login></search_login>
+    <div id="scroll1"></div>
+    <introduce></introduce>
 
     <!-- 서비스 소개 -->
+    <div id="scroll2"></div>
+    <chart></chart>
     <div id="scroll3"></div>
-    <painpoint></painpoint>
-
+    <project></project>
     <review></review>
 
     <!-- 사이드 바 -->
@@ -29,8 +29,8 @@
 <script>
 /* eslint-disable */
 import categories from "../components/categories.vue";
-import painpoint from "../components/painpoint.vue";
-import search_login from "../components/search_login.vue";
+import chart from "../components/chart.vue";
+import introduce from "../components/introduce.vue";
 import select_slider from "../components/select_slider.vue";
 import chating from "../components/chating.vue";
 import sidebar from "../components/sidebar.vue";
@@ -38,6 +38,7 @@ import mainImage from "../components/mainImage.vue";
 import side_categories from "../components/side_categories.vue";
 import review from "../components/review.vue";
 import main_sub_categoriebar from "../components/main_sub_categoriebar.vue";
+import project from "../components/project.vue";
 
 export default {
   name: "app",
@@ -64,15 +65,16 @@ export default {
   },
   components: {
     categories,
-    search_login,
+    introduce,
     select_slider,
     chating,
     sidebar,
-    painpoint,
+    chart,
     mainImage,
     side_categories,
     review,
     main_sub_categoriebar,
+    project,
   },
 };
 </script>
